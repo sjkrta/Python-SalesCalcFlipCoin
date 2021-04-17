@@ -60,6 +60,6 @@ print('\n'+'Summary of the sales'.center(60)+'\n'+dash+'\n'+dash)
 for i in range(len(data)):
     print('{:<15}{:^15}{:^15}{:^15}'.format(data[i][0],data[i][1],data[i][2],data[i][3]))
 print(dash,'\n')
-print('The customer spending most is',spendingMostCustomer,'with an amount of','${:0.2f}'.format(totalPrice))
-print('The customer spending least is',spendingLessCustomer,'with an amount of','${:0.2f}'.format(totalPrice))
+print('The customer spending most is',spendingMostCustomer,'with an amount of','${:0.2f}'.format(spendingMost))
+print('The customer spending least is',spendingLessCustomer,'with an amount of','${:0.2f}'.format(spendingLess))
 
