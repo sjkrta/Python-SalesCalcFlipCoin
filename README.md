@@ -1,7 +1,4 @@
-# Python-Projects
-Here, I will be uploading the projects that I have worked on. Projects includes raw python as well as it's library like PyGame, TensorFlow, PyTorch, web2py,etc.
-
-1. First Project:(Higest and Lowest Sale calculation based application)
+Project Name: (Higest and Lowest Sale calculation based application)
 To understand what this program is in detail, read this description.
 
 Create a basic python console application to calculate and display coffee beans sales for N customers who purchased coffee beans from Australian roasters. The prices of coffee beans bags are shown below
