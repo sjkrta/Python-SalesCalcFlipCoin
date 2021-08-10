@@ -16,7 +16,7 @@ game()=>calls all other function
 
 then after functions are declared game() is called.
 
-#flip_a_coin_without_function
+# flip_a_coin_without_function
 
 This is very easy and faster way to solve this game.
 We just have to create a while loop for a condition play.
