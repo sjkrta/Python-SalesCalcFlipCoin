@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # flip_a_coin
 
 User will be prompt to enter either 'head' or 'tail'
@@ -27,7 +26,8 @@ Now we can ask user for input in while loop again.
 if user responds positive we just break inner loop 
 otherwise we set play to false and then the loop ends and 
 game is over()
-=======
+
+
 Project Name: (Higest and Lowest Sale calculation based application)
 To understand what this program is in detail, read this description.
 
