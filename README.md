@@ -44,4 +44,3 @@ Specific Requirements:
 3. The program makes a calculation of the order and displays the result of customer details and the total price as shown below. The program should be kept running with entering the next set of input data.
 4. After all N sets of input data are entered from the keyboard, your program will also display the information that includes the customer spending most, the customer spending least as shown in a attached figure.
 5. The application should be user-friendly by displaying appropriate welcome, exit and error message.
->>>>>>> bc4c5a8aa0cd71e9af36899a73825f4c627c51df
