@@ -1,65 +1,75 @@
-dash = '-' * 60
-print(dash)
-print('Hello, Welcome to the program')
-print(dash)
-numberOfCustomers = int(input('Enter the number of customers: '))
-print(dash)
-data = [['Name', 'Quantity', 'Reseller', 'Charge']]
+DASH = "-" * 60
 
-spendingMost=0
-spendingLess=4000
-spendingMostCustomer=''
-spendingLessCustomer=''
-for i in range(numberOfCustomers):
-    customers=[]
+print(DASH)
+print("Hello, Welcome to the program")
+print(DASH)
+n_customers = int(input("Enter the number of customers: "))
+print(DASH)
+
+data = ["Name", "Quantity", "Reseller", "Charge"]
+
+spendingMost = 0
+spendingLeast = 4000
+spendingMostCustomer = None
+spendingLessCustomer = None
+
+names = []
+quantities = []
+resellers = []
+charges = []
+
+for i in range(n_customers):
     name = input("\nEnter customer name: ")
-    customers.append(name)
+    names.append(name)
     while True:
-        number = int(input("Enter the number of coffee beans bags (bag/1kg): "))
-        if number<1:
-            print('Enter at least 1 quantity.')
-        elif number<=100:
+        quantity = int(input("Enter the number of coffee beans bags (bag/1kg): "))
+        if 1 < quantity <= 100:
             break
-        else:
-            print('Thats beyond the range. You can select up to 100 only.')
-    customers.append(number)
+        if quantity < 1:
+            print("Enter at least 1 quantity.")
+            continue
+        print("Thats beyond the range. You can select up to 100 only.")
+    quantities.append(quantity)
 
-    price=0
-    totalPrice=0
-    if number <=3:
-        price=38*number
-    elif number >=4 and number<=10:
-        price=35.5*number
+    price = 0
+    totalPrice = 0
+
+    if quantity <= 3:
+        price = 38 * quantity
+    elif quantity <= 10:
+        price = 35.5 * quantity
     else:
-        price=33.7*number
+        price = 33.7 * quantity
 
     while True:
-        reseller=input('Enter yes/no to indicate whether you are a reseller: ')
-        if reseller == 'yes':
-            totalPrice= price-price*0.1
-            break
-        elif reseller == 'no':
-            totalPrice=price
-            break
-        else:
-            print('Sorry! That is a wrong input.')
-    if totalPrice>spendingMost:
-        spendingMost=totalPrice
-        spendingMostCustomer=name
-    if totalPrice<spendingLess:
-        spendingLess=totalPrice
-        spendingLessCustomer=name
+        reseller = input("Enter yes/no to indicate whether you are a reseller: ")
+        if reseller not in ("yes", "no"):
+            print("Sorry! That is a wrong input.")
+            continue
+        totalPrice = price - price * 0.1 if reseller == "yes" else price
+        break
 
+    if totalPrice > spendingMost:
+        spendingMost = totalPrice
+        spendingMostCustomer = name
 
-    customers.append(reseller)
-    customers.append('${:0.2f}'.format(totalPrice))
-    data.append(customers)
-    print("The total sales from", name, "is", totalPrice)
-    print(dash)
-print('\n'+'Summary of the sales'.center(60)+'\n'+dash+'\n'+dash)
-for i in range(len(data)):
-    print('{:<15}{:^15}{:^15}{:^15}'.format(data[i][0],data[i][1],data[i][2],data[i][3]))
-print(dash,'\n')
-print('The customer spending most is',spendingMostCustomer,'with an amount of','${:0.2f}'.format(spendingMost))
-print('The customer spending least is',spendingLessCustomer,'with an amount of','${:0.2f}'.format(spendingLess))
+    if totalPrice < spendingLeast:
+        spendingLeast = totalPrice
+        spendingLessCustomer = name
 
+    resellers.append(reseller)
+    charges.append(f"${totalPrice:0.2f}")
+
+    print(f"The total sales from {name} is {totalPrice}")
+    print(DASH)
+
+print(f"\n{'Summary of the sales'.center(60)}\n{DASH}\n{DASH}")
+for name, quantity, reseller, charge in zip(names, quantities, resellers, charges):
+    print(f"{name:<15}{quantity:^15}{reseller:^15}{charge:^15}")
+print(DASH, "\n")
+print(
+    f"The customer spending most is {spendingMostCustomer} with an amount of ${spendingMost:0.2f}"
+)
+print(
+    f"The customer spending least is {spendingLessCustomer} with an amount of ${spendingLeast: 0.2f}"
+)
